@@ -1,16 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.flightintheatmospherelab1.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+<VBox prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.flightintheatmospherelab1.HelloController">
+    <children>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="739.0" prefWidth="784.0" VBox.vgrow="ALWAYS">
+            <children>
+                <ButtonBar layoutX="480.0" layoutY="69.0" prefHeight="56.0" prefWidth="60.0" />
+                <LineChart fx:id="mainLineChart" animated="true" layoutX="389.0" layoutY="57.0" prefHeight="444.0" prefWidth="616.0" style="-fx-border-color: black;" title="Полет в атмосфере">
+                    <xAxis>
+                        <NumberAxis lowerBound="0" prefHeight="23.0" prefWidth="582.0" side="BOTTOM" upperBound="30" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis lowerBound="0" side="LEFT" upperBound="10" />
+                    </yAxis>
+                </LineChart>
+                <TableView fx:id="resultsTable" layoutX="7.0" layoutY="146.0" prefHeight="354.0" prefWidth="381.0">
+                </TableView>
+                <Button fx:id="launchButton" layoutX="389.0" mnemonicParsing="false" onAction="#onLaunchButtonClick" prefHeight="56.0" prefWidth="616.0" text="Launch">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+            <Pane layoutX="7.0" layoutY="-2.0" prefHeight="143.0" prefWidth="381.0">
+               <children>
+                      <Label layoutX="5.0" layoutY="8.0" prefHeight="27.0" prefWidth="60.0" text="Height:">
+                          <font>
+                              <Font size="15.0" />
+                          </font>
+                      </Label>
+                      <TextField fx:id="heightTextField" layoutX="67.0" layoutY="8.0" prefHeight="27.0" prefWidth="60.0" text="0" />
+                      <Label layoutX="148.0" layoutY="58.0" prefHeight="27.0" prefWidth="43.0" text="Size:">
+                          <font>
+                              <Font size="15.0" />
+                          </font>
+                      </Label>
+                      <TextField fx:id="sizeTextField" layoutX="205.0" layoutY="58.0" prefHeight="27.0" prefWidth="60.0" text="0.10" />
+                      <Label layoutX="278.0" layoutY="8.0" prefHeight="27.0" prefWidth="60.0" text="tick (ms):">
+                          <font>
+                              <Font size="15.0" />
+                          </font>
+                      </Label>
+                      <TextField fx:id="timerTickTextField" layoutX="338.0" layoutY="8.0" prefHeight="27.0" prefWidth="43.0" text="25" />
+                      <Label layoutX="5.0" layoutY="58.0" prefHeight="27.0" prefWidth="60.0" text="Angle:">
+                          <font>
+                              <Font size="15.0" />
+                          </font>
+                      </Label>
+                      <TextField fx:id="angleTextField" layoutX="67.0" layoutY="58.0" prefHeight="27.0" prefWidth="60.0" text="45" />
+                      <Label layoutX="145.0" layoutY="109.0" prefHeight="27.0" prefWidth="60.0" text="Weight:">
+                          <font>
+                              <Font size="15.0" />
+                          </font>
+                      </Label>
+                      <TextField fx:id="weightTextField" layoutX="205.0" layoutY="109.0" prefHeight="27.0" prefWidth="60.0" text="1" />
+                      <Label layoutX="5.0" layoutY="109.0" prefHeight="27.0" prefWidth="60.0" text="Speed:">
+                          <font>
+                              <Font size="15.0" />
+                          </font>
+                      </Label>
+                      <TextField fx:id="speedTextField" layoutX="67.0" layoutY="109.0" prefHeight="27.0" prefWidth="60.0" text="10" />
+                      <Label layoutX="145.0" layoutY="8.0" prefHeight="27.0" prefWidth="49.0" text="Dt (s):">
+                          <font>
+                              <Font size="15.0" />
+                          </font>
+                      </Label>
+                      <TextField fx:id="dtTextField" layoutX="205.0" layoutY="8.0" prefHeight="27.0" prefWidth="60.0" text="0.05" />
+               </children>
+            </Pane>
+            </children>
+        </AnchorPane>
+    </children>
 </VBox>
